@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 public abstract class Engine implements IEngine{
     private HashMap<Class<?>, Method> methodList = new HashMap<>();
+    private IEngine specializedEngine = new SPECEngine();
 
     @Override
     public void onEvent(IEvent event) {
@@ -35,10 +36,14 @@ public abstract class Engine implements IEngine{
         } catch (InvocationTargetException e) {
 
         }
-
     }
 
     private void onEvent(Object event){
-        System.out.println("This is default method for this event");
+        specializedEngine.onEvent((IEvent) event);
     }
+
+    public void setSpecializedEngine(SPECEngine specializedEngine) {
+        this.specializedEngine = specializedEngine;
+    }
+
 }
