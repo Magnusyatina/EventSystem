@@ -24,7 +24,8 @@ public abstract class Engine implements IEngine{
         } catch (NoSuchMethodException e) {
             System.out.println("Method did not find");
             try {
-                Method method = this.getClass().getMethod("onEvent", Object.class);
+                Method method = Engine.class.getDeclaredMethod("onEvent", Object.class);
+                method.setAccessible(true);
                 methodList.put(cl, method);
             } catch (NoSuchMethodException noSuchMethodException) {
 
@@ -37,7 +38,7 @@ public abstract class Engine implements IEngine{
 
     }
 
-    public void onEvent(Object event){
+    private void onEvent(Object event){
         System.out.println("This is default method for this event");
     }
 }
