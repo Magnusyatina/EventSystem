@@ -42,7 +42,7 @@ public abstract class Engine implements IEngine{
         specializedEngine.onEvent((IEvent) event);
     }
 
-    public void setSpecializedEngine(SPECEngine specializedEngine) {
+    public void setSpecializedEngine(ISPECEngine specializedEngine) {
         this.specializedEngine = specializedEngine;
     }
 

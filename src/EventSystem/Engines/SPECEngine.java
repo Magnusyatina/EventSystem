@@ -2,7 +2,7 @@ package EventSystem.Engines;
 
 import EventSystem.Events.IEvent;
 
-public class SPECEngine implements IEngine{
+public class SPECEngine implements ISPECEngine{
 
     @Override
     public void onEvent(IEvent event) {
